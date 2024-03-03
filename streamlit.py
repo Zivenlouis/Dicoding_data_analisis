@@ -159,6 +159,7 @@ with st.container():
     variable_df = main_df[main_df['station'].isin(per_variable_selected_station)].copy()
     variable_df = variable_df[['datetime', 'station', per_variable]]
     variable_df['datetime'] = pd.to_datetime(variable_df['datetime'].dt.to_timestamp())
+    fig, ax = plt.subplots(figsize=(12, 5))
     for station in per_variable_selected_station:
         ax.plot(variable_df[variable_df['station'] == station]['datetime'], variable_df[variable_df['station'] == station][per_variable], label=station, marker='o')
     ax.legend()
