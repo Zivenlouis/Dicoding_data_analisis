@@ -4,7 +4,7 @@ import streamlit as st
 pd.options.mode.chained_assignment = None
 
 
-combined_df = pd.read_csv('dashboard/all_data.csv')
+combined_df = pd.read_csv('dashboard/main_data.csv')
 combined_df['datetime'] = pd.to_datetime(combined_df[['year', 'month', 'day']])
 combined_df = combined_df.groupby(['station', 'datetime']).agg({
         'year'  : lambda x: x.iloc[0],
